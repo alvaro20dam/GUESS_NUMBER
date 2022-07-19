@@ -1,4 +1,5 @@
 import random
+from re import X
 
 def guess(x):
     random_number = random.randint(1, x)
@@ -12,4 +13,29 @@ def guess(x):
 
     print(f'Congratulatios bro!! You have guessed the number {random_number} correctly')
 
-guess(20)
+
+def computer_guess(x):
+    low = 1
+    high = X
+    feedback = ''
+    while feedback != 'c':
+        if low != high:
+            guess = random.randint(low, high)
+        else:
+            guess = low # could also be high b/c low = high
+        feedback = input(f'Is {guess} too high (H), too low (L), or correct(C)')
+        if feedback == 'h':
+            high = guess - 1
+        elif feedback == 'l':
+            low = guess + 1
+
+        print(f'Yey!! Te PC is not too boring, It guess the number {guess} correctly!')
+
+
+
+
+
+
+computer_guess(20)
+
+
